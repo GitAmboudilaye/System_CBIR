@@ -32,11 +32,8 @@ def main():
     options_Descriptors =["Bitdesc","Bitdesc_glcm", "Haralick_bitdesc", "Haralick_glcm", "Haralick_with_mean", "GLCM"]
     selected_option_Descriptors = st.sidebar.selectbox("Descriptors", options_Descriptors)
     #uplaod image file
-    
     file_path = upload_file()
-    print("file path************************")
-    print(file_path)
-
+    
     if file_path is not None:
         
         img_features = read_img(file_path)

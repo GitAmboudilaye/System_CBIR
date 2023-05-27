@@ -1,5 +1,5 @@
 from flask import Flask,request, jsonify
-from read_functions import  Compute_distance
+from query import  Compute_distance
 import numpy as np
 #using for xamarin.form
 import base64
@@ -22,16 +22,16 @@ def main():
 @app.route('/upload', methods=['POST'])
 def upload():
     print("/***********************************************/")
-    # Récupération de l'image encodée en base64 depuis la requête POST
-    #image_data = request.files['image'].read()
+    #Récupération de l'image encodée en base64 depuis la requête POST
+    image_data = request.files['image'].read()
 
-    # Décodage de l'image depuis la base64
-    #decoded_image_data = base64.b64decode(image_data)
+    #Décodage de l'image depuis la base64
+    decoded_image_data = base64.b64decode(image_data)
 
     # Écriture de l'image dans un fichier PNG
     #with open('uploaded_image.png', 'wb') as f:
         #f.write(decoded_image_data)
-    requests_data = request.get_json(force=True)
+    #requests_data = request.get_json(force=True)
     #if requests_data["image"] ==2:
     return {"image":'Image uploaded successfully'}
 
